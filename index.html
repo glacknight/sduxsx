@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>习思想答题练习</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <div>
+          <h1>习思想答题练习</h1>
+          <p id="bankInfo">正在载入题库...</p>
+        </div>
+        <div class="score" aria-live="polite">
+          <span id="progressText">0 / 0</span>
+          <strong id="scoreText">0%</strong>
+        </div>
+      </header>
+
+      <section class="controls" aria-label="练习设置">
+        <label>
+          题型
+          <select id="typeFilter">
+            <option value="all">全部题型</option>
+            <option value="single">单选题</option>
+            <option value="multi">多选题</option>
+            <option value="judge">判断题</option>
+            <option value="wrong">错题再测</option>
+          </select>
+        </label>
+        <label>
+          数量
+          <input id="amountInput" type="number" min="1" max="720" value="30" />
+        </label>
+        <button id="startBtn" type="button">开始测试</button>
+        <button id="resetWrongBtn" type="button" class="ghost">清空错题</button>
+      </section>
+
+      <section class="card" id="quizCard" aria-live="polite">
+        <div class="questionMeta">
+          <span id="typeText">准备</span>
+          <span id="sourceText"></span>
+        </div>
+        <h2 id="questionText">点击“开始测试”即可开始练习。</h2>
+        <div id="options" class="options"></div>
+        <div id="feedback" class="feedback"></div>
+        <div class="actions">
+          <button id="submitBtn" type="button" disabled>提交答案</button>
+          <button id="nextBtn" type="button" class="ghost" disabled>下一题</button>
+        </div>
+      </section>
+
+      <section class="summary" aria-label="练习统计">
+        <div>
+          <span>本轮正确</span>
+          <strong id="rightCount">0</strong>
+        </div>
+        <div>
+          <span>本轮错误</span>
+          <strong id="wrongCount">0</strong>
+        </div>
+        <div>
+          <span>错题本</span>
+          <strong id="wrongBookCount">0</strong>
+        </div>
+      </section>
+    </main>
+
+    <script src="questions.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
